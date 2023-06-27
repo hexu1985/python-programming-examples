@@ -5,4 +5,5 @@
 - [Python3程序开发指南](Programming.In.Python.3)
 - [Python编程](Programming.Python)
 - [Python标准库](Python.Standard.Library.By.Example)
+- [Effective Python](Effective.Python)
 
