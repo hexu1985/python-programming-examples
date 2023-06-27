@@ -2,3 +2,5 @@
 
 - [Python基础教程](Beginning.Python)
 - [Python核心编程](Core.Python.Programming)
+- [Python3程序开发指南](Programming.In.Python.3)
+
