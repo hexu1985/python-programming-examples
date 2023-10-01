@@ -16,23 +16,23 @@ def evaluate(item):
 
 if __name__ == '__main__':
     # Sequential Execution
-    start_time = time.clock()
+    start_time = time.time()
     for item in number_list:
         evaluate(item)
-    print('Sequential Execution in %s seconds' % (time.clock() - start_time))
+    print('Sequential Execution in %s seconds' % (time.time() - start_time))
 
    
     # Thread Pool Execution
-    start_time = time.clock()
+    start_time = time.time()
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         for item in number_list:
             executor.submit(evaluate, item)
-    print('Thread Pool Execution in %s seconds' % (time.clock() - start_time))
+    print('Thread Pool Execution in %s seconds' % (time.time() - start_time))
 
       
     # Process Pool Execution
-    start_time = time.clock()
+    start_time = time.time()
     with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
         for item in number_list:
             executor.submit(evaluate, item)
-    print('Process Pool Execution in %s seconds' % (time.clock() - start_time))
+    print('Process Pool Execution in %s seconds' % (time.time() - start_time))
