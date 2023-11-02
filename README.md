@@ -8,3 +8,5 @@
 - [Effective Python](Effective.Python)
 - [Python并行编程实战](Python.Parallel.Programming.Cookbook)
 - [Python标准库](Python.Standard.Library.By.Example)
+- [Python自动化运维实战](Hands.On.Enterprise.Automation.With.Python)
+
