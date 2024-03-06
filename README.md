@@ -11,5 +11,11 @@
 + 标准库
     - [Python标准库](Python.Standard.Library.By.Example)
     - [Python并行编程实战](Python.Parallel.Programming.Cookbook)
++ tkinter
+    - [Python GUI设计: tkinter菜鸟编程](Python.GUI.Tkinter.Rookie.Programming)
+    - [Python GUI设计: tkinter从入门到实践](Python.GUI.Tkinter.From.Novice.To.Practice)
+    - [Python与Tkinter编程](Python.And.Tkinter.Programming)
+    - [Python GUI Programming Cookbook](Python.GUI.Programming.Cookbook)
 + 第三方库
     - [Python自动化运维实战](Hands.On.Enterprise.Automation.With.Python)
+    - [pytest测试实战](Python.Testing.With.Pytest)
