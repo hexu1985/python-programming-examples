@@ -1,4 +1,4 @@
-from Tkinter   import *
+from tkinter import *
 import Pmw, string
 
 class SLabel(Frame):
@@ -21,7 +21,7 @@ class Key(Button):
         kw['fg'] = fg
         kw['width'] = width
         kw['borderwidth'] = borderwidth
-        apply(Button.__init__, (self, master), kw)
+        Button.__init__(self, master, **kw)
         self.pack(side=LEFT, expand=NO, fill=NONE)
         
 class Calculator(Frame):
@@ -48,7 +48,7 @@ class Calculator(Frame):
         self.current = ""
                            
     def doThis(self,action):
-        print '"%s" has not been implemented' % action
+        print('"%s" has not been implemented' % action)
         
     def turnoff(self, *args):
         self.quit()
@@ -76,9 +76,9 @@ class Calculator(Frame):
         self.current = self.current + key
          
     def evalAction(self, action):
-	try:
+        try:
             self.actionDict[action](action)
-	except KeyError:
+        except KeyError:
             pass
 
     def buildCalculator(self):
@@ -135,7 +135,7 @@ class Calculator(Frame):
                       hull_background='gray40', hull_borderwidth=10, 
                       text_background='honeydew4', text_width=16,
                       text_foreground='black', text_height=6,
-		      text_padx=10, text_pady=10, text_relief='groove',
+                      text_padx=10, text_pady=10, text_relief='groove',
                       text_font=('arial', 12, 'bold'))
         self.display.pack(side=TOP, expand=YES, fill=BOTH)
         self.display.tag_config('ans', foreground='white')
@@ -162,10 +162,10 @@ class Evaluator:
 
     def runpython(self, code):
         try:
-            return `eval(code, self.myNameSpace, self.myNameSpace)`
+            return eval(code, self.myNameSpace, self.myNameSpace)
         except SyntaxError:
             try:
-                exec code in self.myNameSpace, self.myNameSpace
+                exec(code, self.myNameSpace, self.myNameSpace)
             except:
                 return 'Error'
 
