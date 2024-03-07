@@ -1,72 +1,72 @@
-from Tkinter import *
+from tkinter import *
 
 class AllTkinterWidgets:
     def __init__(self, master):
         frame = Frame(master, width=500, height=400, bd=1)
         frame.pack()
 
-	self.mbar = Frame(frame, relief = 'raised', bd=2)
-	self.mbar.pack(fill = X)
+        self.mbar = Frame(frame, relief = 'raised', bd=2)
+        self.mbar.pack(fill = X)
 
-	# Create File menu
-	self.filebutton = Menubutton(self.mbar, text = 'File')
-	self.filebutton.pack(side = LEFT)
+        # Create File menu
+        self.filebutton = Menubutton(self.mbar, text = 'File')
+        self.filebutton.pack(side = LEFT)
 
-	self.filemenu = Menu(self.filebutton, tearoff=0)
-	self.filebutton['menu'] = self.filemenu
+        self.filemenu = Menu(self.filebutton, tearoff=0)
+        self.filebutton['menu'] = self.filemenu
 
-	# Populate File menu
-	self.filemenu.add('command', label = 'Exit', command = self.quit)
+        # Populate File menu
+        self.filemenu.add('command', label = 'Exit', command = self.quit)
 
-	# Create  object menu
-	self.objectbutton = Menubutton(self.mbar, text = 'Object', )
-	self.objectbutton.pack(side = LEFT)
+        # Create  object menu
+        self.objectbutton = Menubutton(self.mbar, text = 'Object', )
+        self.objectbutton.pack(side = LEFT)
 
-	self.objectmenu = Menu(self.objectbutton, tearoff=0)
-	self.objectbutton['menu'] = self.objectmenu
+        self.objectmenu = Menu(self.objectbutton, tearoff=0)
+        self.objectbutton['menu'] = self.objectmenu
 
-	# Populate object menu
-	self.objectmenu.add('command', label = 'object', command = self.stub)
+        # Populate object menu
+        self.objectmenu.add('command', label = 'object', command = self.stub)
 
-	# Create  edit menu
-	self.editbutton = Menubutton(self.mbar, text = 'Edit', )
-	self.editbutton.pack(side = LEFT)
+        # Create  edit menu
+        self.editbutton = Menubutton(self.mbar, text = 'Edit', )
+        self.editbutton.pack(side = LEFT)
 
-	self.editmenu = Menu(self.editbutton, tearoff=0)
-	self.editbutton['menu'] = self.editmenu
+        self.editmenu = Menu(self.editbutton, tearoff=0)
+        self.editbutton['menu'] = self.editmenu
 
-	# Populate edit menu
-	self.editmenu.add('command', label = 'edit', command = self.stub)
+        # Populate edit menu
+        self.editmenu.add('command', label = 'edit', command = self.stub)
 
-	# Create  view menu
-	self.viewbutton = Menubutton(self.mbar, text = 'View', )
-	self.viewbutton.pack(side = LEFT)
+        # Create  view menu
+        self.viewbutton = Menubutton(self.mbar, text = 'View', )
+        self.viewbutton.pack(side = LEFT)
 
-	self.viewmenu = Menu(self.viewbutton, tearoff=0)
-	self.viewbutton['menu'] = self.viewmenu
+        self.viewmenu = Menu(self.viewbutton, tearoff=0)
+        self.viewbutton['menu'] = self.viewmenu
 
-	# Populate view menu
-	self.viewmenu.add('command', label = 'view', command = self.stub)
+        # Populate view menu
+        self.viewmenu.add('command', label = 'view', command = self.stub)
 
-	# Create  tools menu
-	self.toolsbutton = Menubutton(self.mbar, text = 'Tools', )
-	self.toolsbutton.pack(side = LEFT)
+        # Create  tools menu
+        self.toolsbutton = Menubutton(self.mbar, text = 'Tools', )
+        self.toolsbutton.pack(side = LEFT)
 
-	self.toolsmenu = Menu(self.toolsbutton, tearoff=0)
-	self.toolsbutton['menu'] = self.toolsmenu
+        self.toolsmenu = Menu(self.toolsbutton, tearoff=0)
+        self.toolsbutton['menu'] = self.toolsmenu
 
-	# Populate tools menu
-	self.toolsmenu.add('command', label = 'tools', command = self.stub)
+        # Populate tools menu
+        self.toolsmenu.add('command', label = 'tools', command = self.stub)
 
-	# Create  help menu
-	self.helpbutton = Menubutton(self.mbar, text = 'Help', )
-	self.helpbutton.pack(side = RIGHT)
+        # Create  help menu
+        self.helpbutton = Menubutton(self.mbar, text = 'Help', )
+        self.helpbutton.pack(side = RIGHT)
 
-	self.helpmenu = Menu(self.helpbutton, tearoff=0)
-	self.helpbutton['menu'] = self.helpmenu
+        self.helpmenu = Menu(self.helpbutton, tearoff=0)
+        self.helpbutton['menu'] = self.helpmenu
 
-	# Populate help menu
-	self.helpmenu.add('command', label = 'help', command = self.stub)
+        # Populate help menu
+        self.helpmenu.add('command', label = 'help', command = self.stub)
 
         iframe1 = Frame(frame, bd=2, relief=SUNKEN)
         Button(iframe1, text='Button').pack(side=LEFT, padx=5)
@@ -104,7 +104,7 @@ class AllTkinterWidgets:
         text.pack(side=LEFT, fill=X, padx=5)
         sb = Scrollbar(iframe4, orient=VERTICAL, command=text.yview)
         sb.pack(side=RIGHT, fill=Y)
-	text.configure(yscrollcommand=sb.set)
+        text.configure(yscrollcommand=sb.set)
         iframe4.pack(expand=1, fill=X, pady=10, padx=5)
 
         iframe5 = Frame(frame, bd=2, relief=RAISED)
