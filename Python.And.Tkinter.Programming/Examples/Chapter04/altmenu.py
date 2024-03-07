@@ -1,9 +1,9 @@
-from Tkinter import *
+from tkinter import *
 
 class TestMenu:
     def __init__(self, master):
-	self.master = master
-	self.menubar = Menu(self.master)
+        self.master = master
+        self.menubar = Menu(self.master)
 
         self.cmdmenu = Menu(self.menubar)
         self.cmdmenu.add_command(label="Undo")
@@ -66,7 +66,7 @@ class TestMenu:
         self.menubar.add_cascade(label="Disabled Menu", menu=self.unused)
 
         self.menubar.entryconfig(4, state=DISABLED)
-	self.top = Toplevel(menu=self.menubar, width=500, relief=RAISED,
+        self.top = Toplevel(menu=self.menubar, width=500, relief=RAISED,
                             borderwidth=2)
 
 def main():

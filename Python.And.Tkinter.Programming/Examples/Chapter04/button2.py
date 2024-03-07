@@ -1,8 +1,8 @@
-from Tkinter import *
+from tkinter import *
 
 class GUI:
     def __init__(self):
-   	self.root = Tk()
+        self.root = Tk()
         self.root.title('Button Styles')
         for bdw in range(5):
             setattr(self, 'of%d' % bdw, Frame(self.root, borderwidth=0))
@@ -16,7 +16,7 @@ class GUI:
             getattr(self, 'of%d' % bdw).pack()
 
     def prt(self, relief, border):
-        print '%s:%d' % (relief, border)
+        print('%s:%d' % (relief, border))
 
 myGUI = GUI()
 myGUI.root.mainloop()
