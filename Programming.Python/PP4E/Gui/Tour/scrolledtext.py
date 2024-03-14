@@ -1,4 +1,5 @@
 "a simple text or file viewer component"
+import sys
 
 print('PP4E scrolledtext')
 from tkinter import *
