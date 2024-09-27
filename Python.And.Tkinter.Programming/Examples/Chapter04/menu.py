@@ -1,13 +1,13 @@
-from Tkinter import *
+from tkinter import *
 
 def new_file():
-    print "Open new file"
+    print("Open new file")
 
 def open_file():
-    print "Open existing file"
+    print("Open existing file")
 
 def stub_action():
-    print "Menu select"
+    print("Menu select")
 
 def makeCommandMenu():
     CmdBtn = Menubutton(mBar, text='Button Commands', underline=0)
@@ -105,13 +105,7 @@ ChkBtn = makeCheckbuttonMenu()
 RadBtn = makeRadiobuttonMenu()
 NoMenu = makeDisabledMenu()
 
-mBar.tk_menuBar(CmdBtn, CasBtn, ChkBtn, RadBtn, NoMenu)
-
 root.title('Menus')
 root.mainloop()
-
-
-
-
 
 
