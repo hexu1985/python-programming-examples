@@ -1,8 +1,8 @@
-from Tkinter import *
+from tkinter import *
 
 class GUI:
     def __init__(self):
-   	self.root = Tk()
+        self.root = Tk()
         self.root.title('GUI Design 9')
         self.base = 'gray60'
         self.fout=Frame(self.root, borderwidth=0)

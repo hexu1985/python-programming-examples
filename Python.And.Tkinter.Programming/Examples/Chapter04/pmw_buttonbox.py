@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -6,7 +6,7 @@ root.title('ButtonBox')
 Pmw.initialise()
 
 def buttonPress(btn):
-    print 'The "%s" button was pressed' % btn
+    print('The "%s" button was pressed' % btn)
 
 def defaultKey(event):
     buttonBox.invoke()

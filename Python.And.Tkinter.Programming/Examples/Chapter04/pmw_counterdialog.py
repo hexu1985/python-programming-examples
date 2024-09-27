@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -20,7 +20,7 @@ dialog = Pmw.CounterDialog(root,
 dialog.tkraise()
 
 result = dialog.activate()
-print 'You clicked on', result, dialog.get()
+print('You clicked on', result, dialog.get())
 
 root.mainloop()
 

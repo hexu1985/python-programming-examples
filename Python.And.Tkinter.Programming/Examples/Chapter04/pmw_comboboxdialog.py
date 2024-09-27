@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -8,7 +8,7 @@ Pmw.initialise()
 choice = None
 
 def choseEntry(entry):
-    print 'You chose "%s"' % entry
+    print('You chose "%s"' % entry)
     choice.configure(text=entry)
 
 plays = ("The Taming of the Shrew", "Two Gentelmen of Verona", "Twelfth Night", "The Merchant of Venice", "Hamlet", "King Richard the Third")
@@ -20,7 +20,7 @@ dialog = Pmw.ComboBoxDialog(root, title = 'ComboBoxDialog',
 dialog.tkraise()
 
 result = dialog.activate()
-print 'You clicked on', result, dialog.get()
+print('You clicked on', result, dialog.get())
 
 root.mainloop()
 

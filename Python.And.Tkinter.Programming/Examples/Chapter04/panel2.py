@@ -1,8 +1,8 @@
-from Tkinter import *
+from tkinter import *
 
 class GUI:
     def __init__(self):
-   	self.root = Tk()
+        self.root = Tk()
         self.root.title('Frame Styles')
         for bdw in range(5):
             setattr(self, 'of%d' % bdw, Frame(self.root, borderwidth=0))

@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -8,7 +8,7 @@ Pmw.initialise()
 choice = None
 
 def choseEntry(entry):
-    print 'You chose "%s"' % entry
+    print('You chose "%s"' % entry)
     choice.configure(text=entry)
 
 asply = ("The Mating of the Wersh", "Two Netlemeng of Verona", "Twelfth Thing", "The Chamrent of Venice", "Thamle", "Ring Kichard the Thrid")
