@@ -12,8 +12,8 @@ Python3 使用 `pip install -U pytest` 安装
 ### virtual安装pytest
 
 ```
-$ python3 -m venv venv
-$ source venv/bin/activate
+$ python3 -m venv test_env
+$ source test_env/bin/activate
 $ pip install pytest
 ```
 
