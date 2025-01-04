@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -10,9 +10,9 @@ dialog = None
 def execute(result):
     sels = dialog.getcurselection()
     if len(sels) == 0:
-        print 'You clicked on', result, '(no selection)'
+        print('You clicked on', result, '(no selection)')
     else:
-        print 'You clicked on', result, sels[0]
+        print('You clicked on', result, sels[0])
     dialog.deactivate(result)
 
 dialog = Pmw.SelectionDialog(root, title='String',

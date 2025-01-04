@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -18,6 +18,7 @@ lines = (
 field = index = None
 
 def execute():
+    global index
     field.configure(text=lines[index % len(lines)])
     index = index + 1
 
