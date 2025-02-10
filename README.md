@@ -8,6 +8,7 @@
     - [Python编程](Programming.Python)
     - [Effective Python](Effective.Python)
     - [Python快速入门](The.Quick.Python.Book)
+    - [Python程序设计基础](Starting.Out.With.Python)
 + 标准库
     - [Python标准库](Python.Standard.Library.By.Example)
     - [Python并行编程实战](Python.Parallel.Programming.Cookbook)
