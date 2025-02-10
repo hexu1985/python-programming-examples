@@ -33,4 +33,5 @@ button.pack(padx=10, pady=10)
 index = 0
 execute()
 
+root.mainloop()
 

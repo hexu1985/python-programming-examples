@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -12,7 +12,7 @@ sf = frame = None
 def addButton():
     global row, col
     button = Button(frame, text = '(%d,%d)' % (col, row))
-    button.grid(row=row, col=col, sticky='nsew')
+    button.grid(row=row, column=col, sticky='nsew')
 
     frame.grid_rowconfigure(row, weight=1)
     frame.grid_columnconfigure(col, weight=1)

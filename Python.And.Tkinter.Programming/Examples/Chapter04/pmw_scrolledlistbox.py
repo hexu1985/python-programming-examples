@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -10,9 +10,9 @@ box = None
 def selectionCommand():
     sels = box.getcurselection()
     if len(sels) == 0:
-        print 'No selection'
+        print('No selection')
     else:
-        print 'Selection:', sels[0]
+        print('Selection:', sels[0])
 
 box = Pmw.ScrolledListBox(root, listbox_selectmode=SINGLE,
               items=('John Cleese', 'Eric Idle', 'Graham Chapman',
