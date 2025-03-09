@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
