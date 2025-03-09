@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 
 class Gauge(Pmw.MegaWidget):
@@ -6,13 +6,13 @@ class Gauge(Pmw.MegaWidget):
 
         # Define the options for the megawidget
         optiondefs = (
-            ('min',           0,          Pmw.INITOPT),
-            ('max',           100,        Pmw.INITOPT),
-            ('fill',          'red',      None),
-            ('size',          30,         Pmw.INITOPT),
-            ('value',         0,          None),
-            ('showvalue',     1,          None),
-        )
+                ('min',           0,          Pmw.INITOPT),
+                ('max',           100,        Pmw.INITOPT),
+                ('fill',          'red',      None),
+                ('size',          30,         Pmw.INITOPT),
+                ('value',         0,          None),
+                ('showvalue',     1,          None),
+                )
         self.defineoptions(kw, optiondefs)
 
         # Initialize the base class
@@ -22,9 +22,9 @@ class Gauge(Pmw.MegaWidget):
 
         # Create the gauge component
         self.gauge = self.createcomponent('gauge',
-                             (), None,
-                             Frame, (interior,),
-                             borderwidth=0)
+                                          (), None,
+                                          Frame, (interior,),
+                                          borderwidth=0)
         self.canvas = Canvas(self.gauge,
                              width=self['size'], height=self['size'],
                              background=interior.cget('background'))
@@ -33,13 +33,13 @@ class Gauge(Pmw.MegaWidget):
 
         # Create the scale component
         self.scale = self.createcomponent('scale',
-                             (), None,
-                             Scale, (interior,),
-                             command=self._setGauge,
-                             length=200,
-                             from_ = self['min'],
-                             to    = self['max'],
-                             showvalue=self['showvalue'])
+                                          (), None,
+                                          Scale, (interior,),
+                                          command=self._setGauge,
+                                          length=200,
+                                          from_ = self['min'],
+                                          to    = self['max'],
+                                          showvalue=self['showvalue'])
         self.scale.grid()
 
         value=self['value']

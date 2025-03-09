@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 root = Tk()
 root.option_readfile('optionDB')
@@ -18,10 +18,10 @@ w = c.winfo_reqwidth()
 h = c.winfo_reqheight()
 c.create_oval(10,10,w-10,h-10,fill='DeepSkyBlue1')
 c.create_text(w/2,h/2,text='This is text on a canvas', fill='white',
-	    font=('Verdana', 14, 'bold'))
+              font=('Verdana', 14, 'bold'))
 c.pack(fill=BOTH, expand=1) 
 
-nb.setnaturalpagesize()
+nb.setnaturalsize()
 
 root.mainloop()
 
