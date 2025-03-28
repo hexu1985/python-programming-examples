@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 
 class App:
     def __init__(self, master):
@@ -9,7 +9,7 @@ class App:
         Button(fm, text='Bottom').pack(side=TOP, expand=YES)
         fm.pack(fill=BOTH, expand=YES)
 
-        
+
 root = Tk()
 root.option_add('*font', ('verdana', 12, 'bold'))
 root.title("Pack - Example 6a")
