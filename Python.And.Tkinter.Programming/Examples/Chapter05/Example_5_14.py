@@ -1,6 +1,6 @@
-from   Tkinter import *
-from   tkSimpleDialog import Dialog
-import tkMessageBox
+from tkinter import *
+from tkinter.simpledialog import Dialog 
+from tkinter import messagebox
 import Pmw
 
 class GetPassword(Dialog):
@@ -31,6 +31,7 @@ class GetPassword(Dialog):
                                    'New Passwords do not match')
         else:
             # This is where we would set the new password...
+            print('The New Passwords is {}'.format(npw1))
             pass
 
 root = Tk()
