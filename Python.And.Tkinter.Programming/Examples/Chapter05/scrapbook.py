@@ -1,5 +1,6 @@
-from Tkinter import *
-import Image, ImageTk, os
+from tkinter import *
+import os
+from PIL import Image, ImageTk
 
 class Scrapbook:
     def __init__(self, master=None):
@@ -11,7 +12,7 @@ class Scrapbook:
         self.lbl.place(relx=0.5, rely=0.48, anchor=CENTER)
 
         self.images = []
-        images = os.listdir("..\chapter08\images")
+        images = os.listdir("../Chapter08/images")
 
         xpos = 0.05
         for i in range(10):
@@ -27,7 +28,7 @@ class Scrapbook:
         self.getImg(0)
         
     def getImg(self, img):
-        self.masterImg = Image.open(os.path.join("..\chapter08\images",
+        self.masterImg = Image.open(os.path.join("../Chapter08/images",
                                                  self.images[img]))
         self.masterImg.thumbnail((400, 400))
         self.img = ImageTk.PhotoImage(self.masterImg)

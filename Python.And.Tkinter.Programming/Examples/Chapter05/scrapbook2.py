@@ -1,5 +1,6 @@
-from Tkinter import *
-import Image, ImageTk, os, string
+from tkinter import *
+import os, string
+from PIL import Image, ImageTk
 
 class Scrapbook:
     def __init__(self, master=None):
@@ -24,8 +25,8 @@ class Scrapbook:
         Button(self.frame, text='Done',  command=self.exit,
                bg='red', fg='yellow').place(relx=0.99, rely=0.99, anchor=SE)
         Button(self.frame, text='Info',	 command=self.info,
-	       bg='blue', fg='yellow').place(relx=0.99, rely=0.90, anchor=SE)
-	self.infoDisplayed = FALSE
+               bg='blue', fg='yellow').place(relx=0.99, rely=0.90, anchor=SE)
+        self.infoDisplayed = FALSE
         self.frame.pack()
         self.getImg(0)
         
@@ -41,20 +42,20 @@ class Scrapbook:
 
     def info(self):
         if self.infoDisplayed:
-	    self.fm.destroy()
-	    self.infoDisplayed = FALSE
+            self.fm.destroy()
+            self.infoDisplayed = FALSE
         else:
-	    self.fm = Frame(self.master, bg='gray10')
-	    self.fm.place(in_=self.lbl, relx=0.5, relwidth=1.0, height=50,
-			  anchor=S, rely=0.0, y=-4, bordermode='outside')
+            self.fm = Frame(self.master, bg='gray10')
+            self.fm.place(in_=self.lbl, relx=0.5, relwidth=1.0, height=50,
+                          anchor=S, rely=0.0, y=-4, bordermode='outside')
 
-	    ypos = 0.15
-	    for lattr in ['Format', 'Size', 'Mode']:
-	        Label(self.fm, text='%s:\t%s' % (lattr,
-		      getattr(self.masterImg, '%s' % string.lower(lattr))),
-		      bg='gray10', fg='white',font=('verdana', 8)).place(\
-		      relx=0.3, rely= ypos, anchor=W)
-	        ypos = ypos + 0.35
+            ypos = 0.15
+            for lattr in ['Format', 'Size', 'Mode']:
+                Label(self.fm, text='%s:\t%s' % (lattr,
+                                                 getattr(self.masterImg, '%s' % lattr.lower())),
+                      bg='gray10', fg='white',font=('verdana', 8)).place(\
+                              relx=0.3, rely= ypos, anchor=W)
+                ypos = ypos + 0.35
             self.infoDisplayed = TRUE
 
 root = Tk()
