@@ -1,5 +1,6 @@
-from Tkinter import *
-import sys, Pmw, Image, ImageTk, ImageEnhance
+from tkinter import *
+import sys, Pmw
+from PIL import Image, ImageTk, ImageEnhance
 
 class Enhancer:
     def __init__(self, master=None, imgfile=None):
@@ -20,37 +21,37 @@ class Enhancer:
                 getattr(self, 'lbl%d'%i).grid(row=r*5, column=c*2,
                                               rowspan=5, columnspan=2,
                                               sticky=W+E+S+N, padx=5, pady=5)
-                i = i + 1
+            i = i + 1
 
         self.original = ImageTk.PhotoImage(self.masterImg)
         Label(master, image=self.original).grid(row=0, column=6,
                                                 rowspan=5, columnspan=2)
-              
+
         Label(master, text='Enhance', bg='gray70').grid(row=5, column=6,
-                                    columnspan=2, sticky=N+S+W+E)
+                                                        columnspan=2, sticky=N+S+W+E)
         self.radio = Pmw.RadioSelect(master, labelpos = None, 
-                  buttontype = 'radiobutton', orient = 'vertical',
-                  command = self.selectFunc)
-	self.radio.grid(row=6, column=6, rowspan=4, columnspan=2)
+                                     buttontype = 'radiobutton', orient = 'vertical',
+                                     command = self.selectFunc)
+        self.radio.grid(row=6, column=6, rowspan=4, columnspan=2)
 
         self.varFactor = 0.2
         self.enh = {}
-	for lbl, enh in (('Focus',      ImageEnhance.Sharpness),
+        for lbl, enh in (('Focus',      ImageEnhance.Sharpness),
                          ('Contrast',   ImageEnhance.Contrast),
                          ('Brightness', ImageEnhance.Brightness),
                          ('Color',      ImageEnhance.Color)):
             self.radio.add(lbl)
             self.enh[lbl] = enh
-	self.radio.invoke('Color')
+        self.radio.invoke('Color')
         self.currentEnh = self.enh['Color']
 
         Label(master, text='Variation', bg='gray70').grid(row=10, column=6,
-                   columnspan=2, sticky=N+S+W+E)
+                                                          columnspan=2, sticky=N+S+W+E)
         
-	self.variation=Pmw.ComboBox(master, history=0, entry_width=11,
-             selectioncommand = self.setVariation,
-	     scrolledlist_items=('Fine','Medium Fine','Medium',
-                                 'Medium Course','Course'))
+        self.variation=Pmw.ComboBox(master, history=0, entry_width=11,
+                                    selectioncommand = self.setVariation,
+                                    scrolledlist_items=('Fine','Medium Fine','Medium',
+                                                        'Medium Course','Course'))
         self.variation.selectitem('Medium')
         self.variation.grid(row=11, column=6, columnspan=2)
         
