@@ -1,16 +1,16 @@
-from Tkinter import *
+from tkinter import *
 import random
 root = Tk()
 
 class Indicator:
     def __init__(self, master=None, label='', value=0.0):
-	self.var = DoubleVar()
-	self.s = Scale(master, label=label, variable=self.var,
-		       from_=0.0, to=300.0, orient=HORIZONTAL,
-		       length=300)
-	self.var.set(value)
-	self.s.pack()
-	
+        self.var = DoubleVar()
+        self.s = Scale(master, label=label, variable=self.var,
+                       from_=0.0, to=300.0, orient=HORIZONTAL,
+                       length=300)
+        self.var.set(value)
+        self.s.pack()
+
 def setTemp():
     slider = random.choice(range(10))
     value  = random.choice(range(0, 300))

@@ -1,19 +1,19 @@
-from Tkinter import *
+from tkinter import *
 
 def displayHelp(event):
-    print 'hlp', event.keysym
+    print('hlp', event.keysym)
     
 def sayKey(event):
-    print 'say',event.keysym, event.char
+    print('say', event.keysym, event.char)
     
 def printWindow(event):
-    print 'prt', event.keysym
+    print('prt', event.keysym)
     
 def cursor(*args):
-    print 'cursor'
+    print('cursor')
 
 def unbindThem(*args):
-    print 'Gone...'
+    print('Gone...')
     root.unbind_all('<F1>')
     root.unbind_class('Entry', '<KeyPress>')
     root.unbind('<Alt_L>')

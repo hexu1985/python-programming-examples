@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import Pmw
 
 eventList = { '2': 'KeyPress', '3': 'KeyRelease', '4': 'ButtonPress',
@@ -11,33 +11,39 @@ eventList = { '2': 'KeyPress', '3': 'KeyRelease', '4': 'ButtonPress',
               '37': 'Deactivate' }
 
 root = Tk()
+Pmw.initialise()
 
 def reportEvent(event):
-    rpt = '\n\n%s' % (80*'=')
-    rpt = '%s\nEvent: type=%s (%s)' %  (rpt, event.type,
-                                        eventList.get(event.type, 'Unknown'))
-    rpt = '%s\ntime=%s'   %            (rpt, event.time)
-    rpt = '%s  widget=%s' %            (rpt, event.widget)
-    rpt = '%s  x=%d, y=%d'%            (rpt, event.x, event.y)
-    rpt = '%s  x_root=%d, y_root=%d' % (rpt, event.x_root, event.y_root)
-    rpt = '%s  y_root=%d' %            (rpt, event.y_root)
-    rpt = '%s\nserial=%s' %            (rpt, event.serial)
-    rpt = '%s  num=%s' %               (rpt, event.num)
-    rpt = '%s  height=%s' %            (rpt, event.height)
-    rpt = '%s  width=%s' %             (rpt, event.width)
-    rpt = '%s  keysym=%s' %            (rpt, event.keysym)
-    rpt = '%s  ksNum=%s' %             (rpt, event.keysym_num)
+    rpt = ''
+    rpt += '\n\n{}'.format(80*'=')
+    rpt += '\nEvent: type={} ({})'.format(event.type, eventList.get(event.type, 'Unknown'))
+    rpt += '\ntime={}'.format(event.time)
+    rpt += '  widget={}'.format(event.widget)
+    rpt += '  x={}, y={}'.format(event.x, event.y)
+    rpt += '  x_root={}, y_root={}'.format(event.x_root, event.y_root)
+    rpt += '  y_root={}'.format(event.y_root)
+    rpt += '\nserial={}'.format(event.serial)
+    rpt += '  num={}'.format(event.num)
+    rpt += '  height={}'.format(event.height)
+    rpt += '  width={}'.format(event.width)
+    rpt += '  keysym={}'.format(event.keysym)
+    rpt += '  ksNum={}'.format(event.keysym_num)
 
     #### some event types don't have these attributes 
     try:
-        rpt = '%s  focus=%s' %   (rpt, event.focus)
+        rpt += '  focus={}'.format(event.focus)
     except:
         pass
+
     try:
-        rpt = '%s  send=%s' %    (rpt, event.send_event)
+        rpt += '  send={}'.format(event.send_event)
     except:
         pass
     
+    if event.type == '17':  # '17' 是 Destroy 事件的类型编号
+        print(rpt)
+        return  # 直接返回，不处理 Destroy 事件
+
     text2.yview(END)
     text2.insert(END, rpt)
     
@@ -46,11 +52,12 @@ text  = Entry(frame, width=10, takefocus=1, highlightthickness=2)
 text2 = Pmw.ScrolledText(frame)
 
 for event in eventList.values():
-    frame.bind('<%s>' % event, reportEvent)
-    text.bind('<%s>' % event, reportEvent)
+    frame.bind('<{}>'.format(event), reportEvent)
+    text.bind('<{}>'.format(event), reportEvent)
 
 text.pack()
 text2.pack(fill=BOTH, expand=YES)
 frame.pack()
+
 text.focus_set()
 root.mainloop()

@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 root = Tk()
 
 class Indicator:
@@ -10,7 +10,7 @@ class Indicator:
         self.i.pack()
 
     def valueChanged(self):
-        print 'Current value = %s' % ['Off','On'][self.var.get()]
+        print('Current value = %s' % ['Off','On'][self.var.get()])
 
 ind = Indicator(root, label='Furnace On', value=1)
 root.mainloop()
