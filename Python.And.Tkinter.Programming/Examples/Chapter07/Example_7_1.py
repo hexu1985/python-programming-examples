@@ -1,4 +1,4 @@
-from Tkinter   import *
+from tkinter   import *
 
 SQUARE      = 1
 ROUND       = 2
@@ -211,4 +211,4 @@ if __name__ == '__main__':
                         outline=outline).frame.pack(side=LEFT,
                                       expand=YES, padx=1, pady=1)
 
-TestLEDs().mainloop()
+    TestLEDs().mainloop()

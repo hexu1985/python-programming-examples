@@ -1,4 +1,4 @@
-from Tkinter          import *
+from tkinter          import *
 from Common_7_1       import *                               # <<1>>
 from GUICommon_7_1    import *                               # <<2>>
 
@@ -67,16 +67,16 @@ class LED(GUICommon):                                         # <<3>>
 
     def update(self):
         # First do the blink, if set to blink
-	if self.blink:
-	    if self.on:
-		if not self.onState:
-		    self.onState = self.status
-		self.status  = STATUS_OFF
-		self.on      = 0			    
-	    else:
-		if self.onState:
-		    self.status = self.onState     # Current ON color
-		self.on = 1
+        if self.blink:
+            if self.on:
+                if not self.onState:
+                    self.onState = self.status
+                self.status  = STATUS_OFF
+                self.on      = 0
+            else:
+                if self.onState:
+                    self.status = self.onState     # Current ON color
+                self.on = 1
 
         # Set color for current status                        # <<6>>
         self.canvas.itemconfig(self.light, fill=self.Colors[self.status])
@@ -131,6 +131,6 @@ if __name__ == '__main__':
                                                     expand=YES,
                                                     padx=1, pady=1)
 
-TestLEDs().mainloop()
+    TestLEDs().mainloop()
 
 
