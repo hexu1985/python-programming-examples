@@ -1,5 +1,5 @@
 import string
-from Tkinter import *
+from tkinter import *
 from validation import *
 
 class EntryFormatting:
@@ -9,13 +9,13 @@ class EntryFormatting:
         Label(frame, text='   ').grid(row=0, column=3,sticky=W)
 
         self._ipaddr = self.createField(frame, width=16, row=0, col=2,
-                             label='Phone Number:\n(nnn)-nnn-nnn',
-                             format=self.fmtPhone, enter=self.activate)
+                                        label='Phone Number:\n(nnn)-nnn-nnn',
+                                        format=self.fmtPhone, enter=self.activate)
         self._crdprt = self.createField(frame, width=11, row=1, col=2,
-                 label='SSN#:', format=self.fmtSSN, enter=self.activate)
+                                        label='SSN#:', format=self.fmtSSN, enter=self.activate)
 
         frame.pack(side=TOP, padx=15, pady=15)
-        
+
     def createField(self, master, label='', text='', width=1,
                     format=None, enter=None, row=0, col=0):
         Label(master, text=label).grid(row=row, column=col-1,
@@ -25,9 +25,9 @@ class EntryFormatting:
         id.bind('<Return>',   enter)
         id.grid(row=row, column=col, pady=10, sticky=W)
         return id
-    
+
     def activate(self, event):
-        print '<Return>: value is', event.widget.get()
+        print('<Return>: value is', event.widget.get())
 
     def fmtPhone(self, event):
         current = event.widget.get()
@@ -61,5 +61,5 @@ root.title('Entry  Formatting')
 top = EntryFormatting(root)
 quit = Button(root, text='Quit', command=root.destroy)
 quit.pack(side = 'bottom')
- 
+
 root.mainloop()

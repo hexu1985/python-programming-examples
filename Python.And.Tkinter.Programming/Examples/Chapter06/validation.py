@@ -1,4 +1,4 @@
-from tkMessageBox import *
+from tkinter.messagebox import *
 import string
 
 def validIP(value):

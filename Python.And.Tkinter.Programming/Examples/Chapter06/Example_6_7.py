@@ -1,42 +1,42 @@
 import time, string
-from Tkinter import *
+from tkinter import *
 import Pmw
 
 class EntryValidation:
     def __init__(self, master):
-	now = time.localtime(time.time())
-	self._date = Pmw.EntryField(master,
-		labelpos = 'w',	label_text = 'Date (mm/dd/yy):',
-		value = '%d/%d/%d' % (now[1], now[2], now[0]),
-		validate = {'validator':'date',
-			    'format':'mdy', 'separator':'/'})
-	self._time = Pmw.EntryField(master,
-		labelpos = 'w',	label_text = 'Time (24hr clock):',
-		value = '8:00:00',
-		validate = {'validator':'time',
-			    'min':'00:00:00', 'max':'23:59:59',
-			    'minstrict':0, 'maxstrict':0})
-	self._real = Pmw.EntryField(master,
-		labelpos = 'w',	value = '127.2',
-		label_text = 'Real (50.0 to 1099.0):',
-		validate = {'validator':'real',
-                            'min':50, 'max':1099,
-                            'minstrict':0},
-                modifiedcommand = self.valueChanged)
+        now = time.localtime(time.time())
+        self._date = Pmw.EntryField(master,
+                                    labelpos = 'w', label_text = 'Date (mm/dd/yy):',
+                                    value = '%d/%d/%d' % (now[1], now[2], now[0]),
+                                    validate = {'validator':'date',
+                                                'fmt':'mdy', 'separator':'/'})
+        self._time = Pmw.EntryField(master,
+                                    labelpos = 'w', label_text = 'Time (24hr clock):',
+                                    value = '8:00:00',
+                                    validate = {'validator':'time',
+                                                'min':'00:00:00', 'max':'23:59:59',
+                                                'minstrict':0, 'maxstrict':0})
+        self._real = Pmw.EntryField(master,
+                                    labelpos = 'w',        value = '127.2',
+                                    label_text = 'Real (50.0 to 1099.0):',
+                                    validate = {'validator':'real',
+                                                'min':50, 'max':1099,
+                                                'minstrict':0},
+                                    modifiedcommand = self.valueChanged)
         self._ssn = Pmw.EntryField(master,
-		labelpos = 'w', label_text = 'Social Security #:',
-		validate = self.validateSSN, value = '')
+                                   labelpos = 'w', label_text = 'Social Security #:',
+                                   validate = self.validateSSN, value = '')
         
-	fields = (self._date, self._time, self._real, self._ssn)
+        fields = (self._date, self._time, self._real, self._ssn)
 
-	for field in fields:
-	    field.pack(fill='x', expand=1, padx=12, pady=8)
-	Pmw.alignlabels(fields)
+        for field in fields:
+            field.pack(fill='x', expand=1, padx=12, pady=8)
+        Pmw.alignlabels(fields)
 
-	self._date.component('entry').focus_set()
+        self._date.component('entry').focus_set()
 
     def valueChanged(self):
-	print 'Value changed, value is', self._real.get()
+        print('Value changed, value is', self._real.get())
 
     def validateSSN(self, contents):
         result = -1
