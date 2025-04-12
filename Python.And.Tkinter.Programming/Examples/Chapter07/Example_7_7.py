@@ -1,4 +1,4 @@
-from Tkinter      import *
+from tkinter      import *
 from Common       import *
 from Components   import *
 
@@ -34,27 +34,27 @@ class TestComposite(Frame):
         self.make_widgets()
 
     def make_widgets(self):
-            switches = [(NUT_POINT, 0, STATUS_OFF, MODE_US),
-                        (NUT_FLAT,  1, STATUS_ON,  MODE_US),
-                        (NUT_FLAT,  0, STATUS_ON,  MODE_UK),
-                        (NUT_POINT, 0, STATUS_OFF, MODE_UK)]
+        switches = [(NUT_POINT, 0, STATUS_OFF, MODE_US),
+                    (NUT_FLAT,  1, STATUS_ON,  MODE_US),
+                    (NUT_FLAT,  0, STATUS_ON,  MODE_UK),
+                    (NUT_POINT, 0, STATUS_OFF, MODE_UK)]
 
-            frame = Frame(self, bg="gray80")
-            frame.pack(anchor=N, expand=YES, fill=X)
-	    idx = 0
-            for top, mount, state, mode in switches:
-		exec 'var = self.swin%d = None' % idx
-                var = SWITCH_INDICATOR(frame,
-                                 mount=mount, 
-                                 outside=20,
-                                 metal=Color.CHROME, 
-                                 mode=mode,
-                                 bg="gray80", 
-                                 top=top,
-                                 status=state)
-		var.frame.pack(side=LEFT, expand=YES,
-                               padx=2, pady=6)
-                idx = idx + 1
+        frame = Frame(self, bg="gray80")
+        frame.pack(anchor=N, expand=YES, fill=X)
+        idx = 0
+        for top, mount, state, mode in switches:
+            exec('var = self.swin%d = None' % idx)
+            var = SWITCH_INDICATOR(frame,
+                             mount=mount, 
+                             outside=20,
+                             metal=Color.CHROME, 
+                             mode=mode,
+                             bg="gray80", 
+                             top=top,
+                             status=state)
+            var.frame.pack(side=LEFT, expand=YES,
+                           padx=2, pady=6)
+            idx = idx + 1
                 
 if __name__ == '__main__':
     TestComposite().mainloop()
