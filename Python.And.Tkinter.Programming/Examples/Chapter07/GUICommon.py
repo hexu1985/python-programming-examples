@@ -52,10 +52,10 @@ class GUICommon:
     def transform(self, rgb, factor):
         retval = "#"
         for v in [rgb[0], rgb[1], rgb[2]]:
-	    v = (v*factor)/256
+            v = (v*factor)/256
             if v > 255: v = 255
             if v < 0:   v = 0
-            retval = "%s%02x" % (retval, v)
+            retval = "%s%02x" % (retval, int(v))
         return retval
 
 # This routine factors dark, very dark, light and very light colors

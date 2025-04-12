@@ -55,7 +55,7 @@ class GUICommon:
             v = (v*factor)/256
             if v > 255: v = 255
             if v < 0:   v = 0
-            retval = "{}{}".format(retval, v)
+            retval = "%s%02x" % (retval, int(v))
         return retval
 
 # This routine factors dark, very dark, light and very light colors

@@ -1,4 +1,4 @@
-from Tkinter     import *
+from tkinter     import *
 from GUICommon   import *
 from Common      import *
 from Example_7_4 import HEXNUT

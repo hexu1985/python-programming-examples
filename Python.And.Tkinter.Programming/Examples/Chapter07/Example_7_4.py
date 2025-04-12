@@ -1,4 +1,4 @@
-from Tkinter       import *
+from tkinter       import *
 from GUICommon_7_2 import *
 from Common_7_2    import *
 
@@ -61,8 +61,8 @@ class HEXNUT(GUICommon):
                                    centerx,centery,centerx,centery,
                                    centerx,centery,centerx,centery,
                                    centerx,centery)
-        exec 'self.hexnut=self.canv.create_polygon(%s, \
-                outline=self.dbase, fill=self.lbase)' % pointlist
+        exec('self.hexnut=self.canv.create_polygon(%s, \
+                outline=self.dbase, fill=self.lbase)' % pointlist)
 
         ## Now, the inside edge of the threads
         r = r - (inset/2)

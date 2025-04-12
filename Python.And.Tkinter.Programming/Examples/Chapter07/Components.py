@@ -1,4 +1,4 @@
-from Tkinter   import *
+from tkinter   import *
 from GUICommon import *
 from Common    import *
 
@@ -147,8 +147,8 @@ class HEXNUT(GUICommon):
                                    centerx,centery,centerx,centery,
                                    centerx,centery,centerx,centery,
                                    centerx,centery)
-        print pointlist
-	print eval(pointlist)
+        print(pointlist)
+        print(eval(pointlist))
         setattr(self, 'hexnut', self.canv.create_polygon(eval(pointlist), 
                             outline=self.dbase, fill=self.lbase))
 
