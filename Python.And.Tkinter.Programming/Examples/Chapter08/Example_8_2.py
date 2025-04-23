@@ -1,5 +1,5 @@
-from Tkinter import *
-from tkSimpleDialog import *
+from tkinter import *
+from tkinter.simpledialog import *
 import Pmw
 
 class App:
@@ -8,7 +8,7 @@ class App:
                                      value='',
                                      label_text='Returned value:  ',
                                      labelpos=W, labelmargin=1)
-	self.result.pack(padx=15, pady=15)
+        self.result.pack(padx=15, pady=15)
 
 root = Tk()
 display = App(root)

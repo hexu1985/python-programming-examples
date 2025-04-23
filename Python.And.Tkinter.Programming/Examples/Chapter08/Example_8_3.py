@@ -1,6 +1,6 @@
-from   Tkinter import *
-from   tkSimpleDialog import Dialog
-import tkMessageBox
+from tkinter import *
+from tkinter.simpledialog import Dialog
+from tkinter import messagebox
 import Pmw
 
 class GetPassword(Dialog):
@@ -27,7 +27,7 @@ class GetPassword(Dialog):
         npw2 = self.newpw2.get()
 
         if not npw1 == npw2:
-            tkMessageBox.showerror('Bad Password',
+            messagebox.showerror('Bad Password',
                                    'New Passwords do not match')
         else:
             # This is where we would set the new password...

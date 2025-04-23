@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 
 class Var(Frame):
     def __init__(self, master=None):
@@ -15,7 +15,7 @@ class Var(Frame):
         self.field.bind('<Key-Return>', self.print_value)
 
     def print_value(self, event):
-        print 'Value is "%s"' % self.value.get()
+        print('Value is "%s"' % self.value.get())
         
 test = Var()
 test.mainloop()

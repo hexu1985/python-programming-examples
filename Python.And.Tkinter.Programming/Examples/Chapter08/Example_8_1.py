@@ -1,5 +1,5 @@
-from Tkinter import *
-from tkMessageBox import *
+from tkinter import *
+from tkinter.messagebox import *
 import Pmw
 
 class App:
@@ -8,14 +8,14 @@ class App:
                                      value='',
                                      label_text='Returned value:  ',
                                      labelpos=W, labelmargin=1)
-	self.result.pack(padx=15, pady=15)
+        self.result.pack(padx=15, pady=15)
 
 root = Tk()
 question = App(root)
 
 button = askquestion("Question:",
-                   "Oh Dear, did somebody\nsay mattress to Mr Lambert?",
-                   default=NO)
+                     "Oh Dear, did somebody\nsay mattress to Mr Lambert?",
+                     default="no")
 question.result.setentry(button)
 
 root.mainloop()
