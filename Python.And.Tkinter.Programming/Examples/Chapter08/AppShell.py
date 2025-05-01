@@ -8,7 +8,7 @@ created by Doug Hellmann (doughellmann@mindspring.com).
 
 """
 
-from Tkinter import *
+from tkinter import *
 import Pmw
 import sys, string
 import ProgressBar
@@ -20,25 +20,25 @@ class AppShell(Pmw.MegaWidget):
     contactname     = 'Your Name'
     contactphone    = '(999) 555-1212'
     contactemail    = 'youremail@host.com'
-          
+
     frameWidth      = 450
     frameHeight     = 320
     padx            = 5
     pady            = 5
     usecommandarea  = 0
     balloonhelp     = 1
-    
+
     busyCursor = 'watch'
-    
+
     def __init__(self, **kw):
         optiondefs = (
-            ('padx',           1,                   Pmw.INITOPT),
-            ('pady',           1,                   Pmw.INITOPT),
-            ('framewidth',     1,                   Pmw.INITOPT),
-            ('frameheight',    1,                   Pmw.INITOPT),
-            ('usecommandarea', self.usecommandarea, Pmw.INITOPT))
+                ('padx',           1,                   Pmw.INITOPT),
+                ('pady',           1,                   Pmw.INITOPT),
+                ('framewidth',     1,                   Pmw.INITOPT),
+                ('frameheight',    1,                   Pmw.INITOPT),
+                ('usecommandarea', self.usecommandarea, Pmw.INITOPT))
         self.defineoptions(kw, optiondefs)
-        
+
         self.root = Tk()
         self.initializeTk(self.root)
         Pmw.initialise(self.root)
@@ -47,17 +47,17 @@ class AppShell(Pmw.MegaWidget):
 
         # Initialize the base class
         Pmw.MegaWidget.__init__(self, parent=self.root)
-        
+
         # initialize the application
         self.appInit()
-        
+
         # create the interface
         self.__createInterface()
-        
+
         # create a table to hold the cursors for
         # widgets which get changed when we go busy
         self.preBusyCursors = None
-        
+
         # pack the container and set focus
         # to ourselves
         self._hull.pack(side=TOP, fill=BOTH, expand=YES)
@@ -65,11 +65,11 @@ class AppShell(Pmw.MegaWidget):
 
         # initialize our options
         self.initialiseoptions(AppShell)
-        
+
     def appInit(self):
         # Called before interface is created (should be overridden).
         pass
-        
+
     def initializeTk(self, root):
         # Initialize platform-specific options
         if sys.platform == 'mac':
@@ -88,16 +88,16 @@ class AppShell(Pmw.MegaWidget):
         root.option_add('*Listbox*background', 'white')
         root.option_add('*Listbox*selectBackground', 'dark slate blue')
         root.option_add('*Listbox*selectForeground', 'white')
-                        
+
     def __initializeTk_win32(self, root):
         self.__initializeTk_colors_common(root)
         root.option_add('*Font', 'Verdana 10 bold')
         root.option_add('*EntryField.Entry.Font', 'Courier 10')
         root.option_add('*Listbox*Font', 'Courier 10')
-        
+
     def __initializeTk_mac(self, root):
         self.__initializeTk_colors_common(root)
-        
+
     def __initializeTk_unix(self, root):
         self.__initializeTk_colors_common(root)
 
@@ -110,7 +110,7 @@ class AppShell(Pmw.MegaWidget):
             component.configure(cursor=newcursor)
             component.update_idletasks()
         self.preBusyCursors = (newPreBusyCursors, self.preBusyCursors)
-        
+
     def busyEnd(self):
         if not self.preBusyCursors:
             return
@@ -122,28 +122,28 @@ class AppShell(Pmw.MegaWidget):
             except KeyError:
                 pass
             component.update_idletasks()
-              
+
     def __createAboutBox(self):
         Pmw.aboutversion(self.appversion)
         Pmw.aboutcopyright(self.copyright)
         Pmw.aboutcontact(
-          'For more information, contact:\n %s\n Phone: %s\n Email: %s' %\
-                      (self.contactname, self.contactphone, 
-                       self.contactemail))
+                'For more information, contact:\n %s\n Phone: %s\n Email: %s' %\
+                        (self.contactname, self.contactphone, 
+                         self.contactemail))
         self.about = Pmw.AboutDialog(self._hull, 
                                      applicationname=self.appname)
         self.about.withdraw()
         return None
-       
+
     def showAbout(self):
         # Create the dialog to display about and contact information.
         self.about.show()
         self.about.focus_set()
-       
+
     def toggleBalloon(self):
-	if self.toggleBalloonVar.get():
+        if self.toggleBalloonVar.get():
             self.__balloon.configure(state = 'both')
-	else:
+        else:
             self.__balloon.configure(state = 'status')
 
     def __createMenuBar(self):
@@ -157,7 +157,7 @@ class AppShell(Pmw.MegaWidget):
         self.menuBar.pack(fill=X)
         self.menuBar.addmenu('Help', 'About %s' % self.appname, side='right')
         self.menuBar.addmenu('File', 'File commands and Quit')
-                            
+
     def createMenuBar(self):
         self.menuBar.addmenuitem('Help', 'command',
                                  'Get information on application', 
@@ -171,9 +171,9 @@ class AppShell(Pmw.MegaWidget):
                                  command=self.toggleBalloon)
 
         self.menuBar.addmenuitem('File', 'command', 'Quit this application',
-                                label='Quit',
-                                command=self.quit)
-                                        
+                                 label='Quit',
+                                 command=self.quit)
+
     def __createBalloon(self):
         # Create the balloon help manager for the frame.
         # Create the manager for the balloon help
@@ -218,7 +218,7 @@ class AppShell(Pmw.MegaWidget):
         frame = self.createcomponent('bottomtray', (), None,
                                      Frame,(self._hull,), relief=SUNKEN)
         self.__messageBar = self.createcomponent('messagebar',
-                                                  (), None,
+                                                 (), None,
                                                  Pmw.MessageBar, 
                                                  (frame,),
                                                  #entry_width = 40,
@@ -228,19 +228,19 @@ class AppShell(Pmw.MegaWidget):
         self.__messageBar.pack(side=LEFT, expand=YES, fill=X)
 
         self.__progressBar = ProgressBar.ProgressBar(frame,
-                                                fillColor='slateblue',
-                                                doLabel=1,
-                                                width=150)
+                                                     fillColor='slateblue',
+                                                     doLabel=1,
+                                                     width=150)
         self.__progressBar.frame.pack(side=LEFT, expand=NO, fill=NONE)
 
         self.updateProgress(0)
         frame.pack(side=BOTTOM, expand=NO, fill=X)
-                   
+
         self.__balloon.configure(statuscommand = \
-                                 self.__messageBar.helpmessage)
+                self.__messageBar.helpmessage)
 
     def messageBar(self):
-	return self.__messageBar
+        return self.__messageBar
 
     def updateProgress(self, newValue=0, newMax=0):
         self.__progressBar.updateProgress(newValue, newMax)
@@ -263,7 +263,7 @@ class AppShell(Pmw.MegaWidget):
         newBtn = self.__buttonBox.add(buttonName)
         newBtn.configure(kw)
         if helpMessage:
-             self.bind(newBtn, helpMessage, statusMessage)
+            self.bind(newBtn, helpMessage, statusMessage)
         return newBtn
 
     def __createInterface(self):
@@ -284,37 +284,37 @@ class AppShell(Pmw.MegaWidget):
     def createInterface(self):
         # Override this method to create the interface for the app.
         pass
-        
+
     def main(self):
         # This method should be left intact!
         self.pack()
         self.mainloop()
-        
+
     def run(self):
         self.main()
 
 class TestAppShell(AppShell):
-        usecommandarea=1
-        
-        def createButtons(self):
-                self.buttonAdd('Ok',
-                        helpMessage='Exit',
-                        statusMessage='Exit',
-                        command=self.quit)
-        
-        def createMain(self):
-                self.label = self.createcomponent('label', (), None,
-                                        Label,
-                                        (self.interior(),),
-                                        text='Data Area')
-                self.label.pack()
-                self.bind(self.label, 'Space taker')
-                
-        def createInterface(self):
-                AppShell.createInterface(self)
-                self.createButtons()
-                self.createMain()
-        
+    usecommandarea=1
+
+    def createButtons(self):
+        self.buttonAdd('Ok',
+                       helpMessage='Exit',
+                       statusMessage='Exit',
+                       command=self.quit)
+
+    def createMain(self):
+        self.label = self.createcomponent('label', (), None,
+                                          Label,
+                                          (self.interior(),),
+                                          text='Data Area')
+        self.label.pack()
+        self.bind(self.label, 'Space taker')
+
+    def createInterface(self):
+        AppShell.createInterface(self)
+        self.createButtons()
+        self.createMain()
+
 if __name__ == '__main__':
-        test = TestAppShell(balloon_state='both')
-        test.run()
+    test = TestAppShell(balloon_state='both')
+    test.run()
