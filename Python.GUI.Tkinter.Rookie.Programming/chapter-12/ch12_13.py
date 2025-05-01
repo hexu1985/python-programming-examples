@@ -1,0 +1,19 @@
+# ch12_13.py 
+from tkinter import * 
+fruits = [
+    "Banana","Watermelon","Pineapple",
+    "Orange","Grapes","Mango"
+]
+
+root = Tk()
+root.title("ch12_13")                             # 窗口标题    
+root.geometry("300x210")                         # 窗口宽300高210
+
+lb = Listbox(root)           # 拖拽可以多选         
+for fruit in fruits:         # 建立水果项目
+    lb.insert(END,fruit)
+lb.pack(pady=10)
+print(lb.get(1,3))                            # 打印1~3个项目
+
+root.mainloop()
+
